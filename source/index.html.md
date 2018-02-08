@@ -2,9 +2,8 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
+
   - ruby
-  - python
   - javascript
 
 toc_footers:
@@ -52,19 +51,24 @@ let api = kittn.authorize('meowmeowmeow');
 
 > Make sure to replace `meowmeowmeow` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Social Discovery uses API keys to allow access to the API.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Access and Keys are manually generated and given to specific users.
 
-`Authorization: meowmeowmeow`
+Social Discovery expects for the API key and SECRET KEY to be included in all API requests to the server in a header that looks like the following:
+
+`apikey: mingmingmingming`
+
+`secret: swswswswswswswsw`
+
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>mingmingmingming</code> and <code>swswswswswswswsw</code> with your personal API key and secret.
 </aside>
 
-# Kittens
+# Orders
 
-## Get All Kittens
+## Get All Orders
 
 ```ruby
 require 'kittn'
@@ -113,21 +117,14 @@ let kittens = api.kittens.get();
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all orders.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+`GET http://staging.socialdiscoverycorp.com/api/v1/people`
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — Authentication header included: apikey & secret
 </aside>
 
 ## Get a Specific Kitten
