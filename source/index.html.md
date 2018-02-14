@@ -127,59 +127,73 @@ This endpoint retrieves all orders.
 Remember — Authentication header included: apikey & secret
 </aside>
 
-## Get a Specific Kitten
+## Get a Specific Order
 
 ```ruby
-require 'kittn'
+require 'uri'
+require 'net/http'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+url = URI("http://staging.socialdiscoverycorp.com/api/v1/people/:id")
+
+http = Net::HTTP.new(url.host, url.port)
+
+request = Net::HTTP::Get.new(url)
+request["apikey"] = '#{api_key}'
+request["secret"] = '#{app_secret}'
+request["authorization"] = 'Basic #{auth}'
+request["cache-control"] = 'no-cache'
+
+response = http.request(request)
+puts response.read_body
 ```
 
 ```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl -X GET \
+  http://staging.socialdiscoverycorp.com/api/v1/people/:id \
+  -H 'apikey: api_key' \
+  -H 'authorization: Basic auth' \
+  -H 'cache-control: no-cache' \
+  -H 'secret: secret_key'
 ```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+Not Available
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns initial JSON structure like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "status": true,
+  "person": "{
+      "id": 1437,
+      "user_id": 68,
+      "first_name": 'John',
+      "middle_name" : 'Robert',
+      "last_name": 'Michael',
+      "case_id": 'test id 1223'
+  }
+
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific order.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<aside class="notice">User can fetch his/her order by calling above url with specific id</aside>
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET GET http://staging.socialdiscoverycorp.com/api/v1/people/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID (required) | The ID of the order to retrieve
 
 ## Delete a Specific Kitten
 
