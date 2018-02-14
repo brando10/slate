@@ -127,6 +127,85 @@ This endpoint retrieves all orders.
 Remember — Authentication header included: apikey & secret
 </aside>
 
+## Request an Order
+
+> Raw hash base structure for the new order request.
+
+```ruby
+{
+ "person":
+  {"case_id": "case1000011",
+   "first_name": "Michael",
+   "middle_name": "John",
+   "last_name": "Doe",
+   "gender": "male",
+   "dob": "01/19/1985",
+   "alias": "Mike",
+   "details":
+    {"ethnicity": ["ethnicity"],
+     "emails": [""],
+     "phones":
+      [{"phone_number": "9999999", "type": "Cell"},
+       {"phone_number": "88888888", "type": "Home"}],
+     "addresses":
+      [{"type": "Current",
+        "address": "",
+        "city": "Los Angeles",
+        "state": "California",
+        "zip": "1630"}],
+     "employment": ["maintenance"],
+     "schools": ["New state college"],
+     "relationships": ["brother"],
+     "physical_descriptions": ["thin", "muscular"],
+     "report_highlights": "yes",
+     "items_added": ""},
+   "claim": "",
+   "from": "",
+   "orders_attributes":
+    {"0":
+      {"networks": "",
+       "specifications": {"advance_options": ["Facebook - Friends"]},
+       "kind": "analyst_quick_check"
+      }
+    },
+   "description": "Test description"
+   },
+ "to": "Today"
+}
+```
+
+
+This endpoint request a new order.
+
+### HTTP Request
+
+`POST http://staging.socialdiscoverycorp.com/api/v1/people`
+
+<aside class="success">
+Remember — Authentication header included: apikey & secret
+</aside>
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+person (required) | person hash as a parameter Validation: Must be a hash
+`person[report_type]` (optional) | Must be one of `Social Media Quick Scan`, `Social Media Investigative Report`
+`person[case_id]` (required) | Must be a String
+`person[first_name]` (required) | Must be a String
+`person[middle_name]` (required) | Must be a String
+`person[last_name]` (required) | Must be a String
+`person[gender]` (required) | Must be one of `male`, `female`, `unknown`
+`person[dob]` (optional) | Format: `mm/dd/yyyy`. Must be a String
+`person[alias]` (optional) | Must be a String
+`person[details]` (required) | Must be a Hash (Details Hash)
+`person[details][ethnicity]` (optional) | Should be in Array of Strings - Must be an array of any type
+`person[details][emails]` (optional) | Should be in Array of Strings - Must be an array of any
+`person[details][phones]` (optional) | Should be an Array of Hashes - Must be an array of nested elements
+`person[details][phones][phone_number]` (optional) | Must be a String
+`person[details][phones][type]` (optional) | Must be one of `Home`, `Cell`, `Work`, `Possible`, `Other`
+
+
 ## Get a Specific Order
 
 ```ruby
@@ -185,9 +264,13 @@ This endpoint retrieves a specific order.
 
 <aside class="notice">User can fetch his/her order by calling above url with specific id</aside>
 
+<aside class="success">
+Remember — Authentication header included: apikey & secret
+</aside>
+
 ### HTTP Request
 
-`GET GET http://staging.socialdiscoverycorp.com/api/v1/people/<ID>`
+`GET http://staging.socialdiscoverycorp.com/api/v1/people/<ID>`
 
 ### URL Parameters
 
