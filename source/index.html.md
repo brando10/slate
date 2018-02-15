@@ -3,8 +3,8 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
 
-  - ruby
-  - javascript
+  - response
+
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -23,7 +23,7 @@ Api Documentation for sending report orders via API.
 
 # Authentication
 
-> Sample Header params:
+> Sample Header parameters:
 
 ```ruby
 apikey = 'FSDFSDF6AGUIRFIEJIIJFIEP590CDB2Q8'
@@ -59,50 +59,23 @@ You must replace <code>mingmingmingming</code> and <code>swswswswswswswsw</code>
 ## Get All Orders
 
 ```ruby
-require 'kittn'
+OUTPUT
+{
+    "status": true,
+    "people": [
+        {
+          1. #{person_hash} },
+        {
+          2. #{person_hash} }
+    ]
+}
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
 ```
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
 
 ```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
 ```
 
 This endpoint retrieves all orders.
@@ -243,56 +216,23 @@ person (required) | person hash as a parameter Validation: Must be a hash
 ## Get a Specific Order
 
 ```ruby
-require 'uri'
-require 'net/http'
+OUTPUT
 
-url = URI("http://staging.socialdiscoverycorp.com/api/v1/people/:id")
-
-http = Net::HTTP.new(url.host, url.port)
-
-request = Net::HTTP::Get.new(url)
-request["apikey"] = '#{api_key}'
-request["secret"] = '#{app_secret}'
-request["authorization"] = 'Basic #{auth}'
-request["cache-control"] = 'no-cache'
-
-response = http.request(request)
-puts response.read_body
-```
-
-```python
-
-```
-
-```shell
-curl -X GET \
-  http://staging.socialdiscoverycorp.com/api/v1/people/:id \
-  -H 'apikey: api_key' \
-  -H 'authorization: Basic auth' \
-  -H 'cache-control: no-cache' \
-  -H 'secret: secret_key'
-```
-
-```javascript
-Not Available
-```
-
-> The above command returns initial JSON structure like this:
-
-```json
 {
-  "status": true,
-  "person": "{
-      "id": 1437,
-      "user_id": 68,
-      "first_name": 'John',
-      "middle_name" : 'Robert',
-      "last_name": 'Michael',
-      "case_id": 'test id 1223'
-  }
-
+    "status": true,
+    "people": [
+        {
+          #{person_hash}
+        }
+    ]
 }
 ```
+```javascript
+
+```
+
+
+
 
 This endpoint retrieves a specific order.
 
@@ -312,52 +252,34 @@ Parameter | Description
 --------- | -----------
 ID (required) | The ID of the order to retrieve
 
-## Delete a Specific Kitten
+## Delete a Specific Oder
 
 ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
+OUTPUT
+{          
+  status: true, success: 'Person successfully Deleted!'
 }
 ```
 
-This endpoint deletes a specific kitten.
+
+```javascript
+
+```
+
+
+
+This endpoint deletes a specific order.
+
+<aside class="success">
+Remember — Authentication header included: apikey & secret
+</aside>
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`DELETE http://staging.socialdiscoverycorp.com/api/v1/people/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+ID | The ID of the order to delete
