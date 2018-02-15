@@ -283,3 +283,44 @@ Remember — Authentication header included: apikey & secret
 Parameter | Description
 --------- | -----------
 ID | The ID of the order to delete
+
+
+
+
+## Completed Orders
+
+```ruby
+INPUT PARAMETERS
+{          
+  {case_ids: '123,343,23432,4545'}
+}
+
+OUTPUT
+{
+  status: true, orders: [
+    {'case_id': '123', 'attachment': {'pdf': 's3_url', 'html': 's3_url'} }
+    {'case_id': '343', 'attachment': {'pdf': 's3_url', 'html': 's3_url'} }
+  ]
+}
+```
+
+
+```javascript
+
+```
+
+This endpoint checks for completed orders.
+
+<aside class="success">
+Remember — Authentication header included: apikey & secret
+</aside>
+
+### HTTP Request
+
+`GET http://staging.socialdiscoverycorp.com/api/v1/completed_orders?case_ids=<case_id>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+case_id | The ID of the completed orders to check
