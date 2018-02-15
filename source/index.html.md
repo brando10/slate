@@ -23,33 +23,21 @@ Api Documentation for sending report orders via API.
 
 # Authentication
 
-> To authorize, use this code:
+> Sample Header params:
 
 ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+apikey = 'FSDFSDF6AGUIRFIEJIIJFIEP590CDB2Q8'
+secret = 'FSDFDS1LM26D5NSCHAQHK6VA4DSDSDSD3'
+Content-Type = 'application/json'
+Authorization = 'Basic c3RhZ2luZzpzdGdsdFnaW5n'
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
 
 ```javascript
-const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `mingmingmingming` AND `swswswswswswswsw` with your API key and Secret.
 
 Social Discovery uses API keys to allow access to the API.
 
@@ -171,6 +159,12 @@ Remember — Authentication header included: apikey & secret
    "description": "Test description"
    },
  "to": "Today"
+}
+
+OUTPUT
+{
+    "status": true,
+    "person_id": "#{response_id}"
 }
 ```
 
