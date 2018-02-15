@@ -204,6 +204,46 @@ person (required) | person hash as a parameter Validation: Must be a hash
 `person[details][phones]` (optional) | Should be an Array of Hashes - Must be an array of nested elements
 `person[details][phones][phone_number]` (optional) | Must be a String
 `person[details][phones][type]` (optional) | Must be one of `Home`, `Cell`, `Work`, `Possible`, `Other`
+`person[details][employments]` (optional) | Should be an array of Hashes - Must be an Array of nested elements
+`person[details][employments][employer_type]` (optional) | Must be one of: `Previous Employer`, `Current Employer`
+`person[details][employments][name]` (optional) | Must be a String
+`person[details][employments][city_/_state]` (optional) | Must be a String
+`person[details][employments][position]` (optional) | Must be a String
+`person[details][employments][start_end_year]` (optional) | Must be a String
+`person[details][educations]` (optional) | Array of Hashes - Must be an Array of nested elements
+`person[details][educations][institution]` (optional) | Must be a String
+`person[details][educations][institution_type]` (optional) | Must be a String
+`person[details][educations][city_/_state]` (optional) | Must be a String
+`person[details][educations][year_graduated]` (optional) | Must be a String
+`person[details][educations][degree_type]` (optional) | Must be a String
+`person[details][addresses]` (optional) | Array of Hashes - Must be an Array of nested elements
+`person[details][addresses][type]` (optional) | Must be one of: `Current`, `Past`, `Possible`
+`person[details][addresses][address]` (optional) | Must be a String
+`person[details][addresses][city]` (optional) | Must be a String
+`person[details][addresses][state]` (optional) | Must be a String
+`person[details][addresses][zip]` (optional) | Must be a String
+`person[details][employment]` (optional) | Must be an Array of any type
+`person[details][schools]` (optional) | Must be an Array of any type
+`person[details][relationships]` (optional) | Must be an Array of any type
+`person[details][physical_descriptions]` (optional) | Must be an Array of any type
+`person[details][date_range]` (optional) | Must be a String
+`person[details][report_highlights]` (optional) | Must be a String
+`person[details][items_added]` (optional) | Must be a String
+`person[claim]` (optional) | Must be a String
+`person[from]` (optional) | Must be a String
+`person[orders_attributes]` (optional) | Must be a Hash
+`person[orders_attributes][0]` (optional) | Must be a Hash
+`person[orders_attributes][0][networks]` (optional) | Must be one of: `quick_check`, `analyst_quick_check`, `deep_dive`, `analyst_quick_check_plus`
+`person[orders_attributes][0][specifications]` (optional) | Must be a Hash
+`person[orders_attributes][0][specifications][advance_options]` (optional) | Must be an Array of any type
+`person[orders_attributes][0][kind]` (optional) | Must be a String
+`person[description]` (optional) | Must be a String
+`person[files_attributes]` (optional) | Can be multiple key pair values 0, 1, 2 etc - Must be a Hash
+`person[files_attributes][0]` (optional) | Must be a Hash
+`person[files_attributes][0][kind]` (optional) | Must be one of: `user_upload`
+`person[files_attributes][0][attachment_attributes]` (optional) | Must be a Hash
+`person[to]` (optional) | Must be a String
+
 
 
 ## Get a Specific Order
