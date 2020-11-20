@@ -119,7 +119,8 @@ Remember — Authentication header included: apikey & secret
      "relationships": ["brother"],
      "physical_descriptions": ["thin", "muscular"],
      "report_highlights": "yes",
-     "items_added": ""},
+     "items_added": "",
+     "date_of_injury": "08/01/2017" },
    "claim": "",
    "from": "",
    "orders_attributes":
@@ -196,6 +197,7 @@ person (required) | person hash as a parameter Validation: Must be a hash
 `person[details][date_range]` (optional) | Must be a String
 `person[details][report_highlights]` (optional) | Must be a String
 `person[details][items_added]` (optional) | Must be a String
+`person[details][date_of_injury]` (optional) | Must be a String
 `person[claim]` (optional) | Must be a String
 `person[from]` (optional) | Must be a String
 `person[orders_attributes]` (optional) | Must be a Hash
@@ -210,6 +212,91 @@ person (required) | person hash as a parameter Validation: Must be a hash
 `person[files_attributes][0][kind]` (optional) | Must be one of: `user_upload`
 `person[files_attributes][0][attachment_attributes]` (optional) | Must be a Hash
 `person[to]` (optional) | Must be a String
+
+## Report Types
+
+<aside class="success">You may switch the report type per order via the key "kind"</aside>
+
+```ruby
+"orders_attributes":
+    {"0":
+      {"networks": "",
+       "specifications": {"advance_options": ["Facebook - Friends"]},
+       "kind": "analyst_quick_check"
+      }
+    }
+```
+### The Analyst
+
+This report is our original social media report and includes a thorough search, data capture, curation with short analysis, and summaries. It is fully customizable to address adjuster and investigator needs that require a more in-depth analysis of social media and internet content. Report data capture, as well as specific case requirements, are fully customizable at report request for every assignment, making the deliverable applicable for almost any case type including workers comp, bodily injury, automotive, criminal, divorce, etc.
+
+Description: Verified Links + Data Capture + Basic Analysis.
+
+Searches: Facebook, Twitter, Foursquare, LinkedIn, YouTube, Pinterest, Instagram, Tumblr + in-depth Google search.
+
+Details:
+
+- Verified and strong possible account links to social media.
+- Extraction of relevant report highlights pertaining to the claim when available.
+- One or two sentences referencing what was found is also included.
+- Basic Relevant Details Report: Basic summary regarding overall investigation (includes whether relevant information on the claim is found or not).
+- SDC Standard/customizable data capture plus check around the date of incident capture if relevant. (ability to save as template).
+
+<aside class="notice">Turn time: 2-3 business days.</aside>
+
+```ruby
+"orders_attributes":
+    {"0":
+      {"networks": "",
+       "specifications": {"advance_options": ["Facebook - Friends"]},
+       "kind": "the_analyst_plus"
+      }
+    }
+```
+
+### The Analyst Plus
+
+This report includes all feature benefits of “The Analyst” plus the additional search and investigations on friends and family, as well as full access for customizable historical data capture based on case requirements. This is a favorite for investigators that require more in-depth investigation and data analysis for their cases. This report provides huge time savings for the busy investigator that needs a high-level investigation. Current customer examples include complex case management and large loss exposure.
+
+Description: Verified Links + Data Capture + Basic Analysis.
+
+Searches: Facebook, Twitter, Foursquare, LinkedIn, YouTube, Pinterest, Instagram, Tumblr, in-depth Google search + Family and Friends search.
+
+Details:
+
+- Includes everything in The Analyst.
+- Includes friends and family search and analysis.
+- Enhanced Relevant Details Report: Custom in-depth summary regarding overall investigation (includes whether relevant information on the claim is found or not).
+- SDC Standard/customizable data capture. (ability to save as template).
+
+<aside class="notice">Turn time: 3-4 business days.</aside>
+
+```ruby
+"orders_attributes":
+    {"0":
+      {"networks": "",
+       "specifications": {"advance_options": ["Facebook - Friends"]},
+       "kind": "the_analyst_di"
+      }
+    }
+```
+### The Analyst Desktop Investigative
+
+This is a full desktop investigative report which includes a full analysis of social media accounts and a background search. This is the goto report for investigators that require a full social media, criminal background, an in-depth investigation, plus data analysis for their cases. This report provides huge time and cost savings for the busy investigator that needs a high-level investigation. Current customer examples include almost every case type where legal considerations may be applicable.
+
+Description: Verified Links + Full or Request Date Range Data Capture + Friends and Family Analysis + Structured Data.
+
+Searches: Facebook, Twitter, Foursquare, LinkedIn, YouTube, Pinterest, Instagram, Tumblr, In-depth Google search + Family and Friends search.
+
+Details:
+
+- Includes everything in The Analyst Plus.
+- Includes structured data feed.
+- Includes more in-depth friends/family search and analysis.
+- Custom summary regarding the overall investigation.
+
+<aside class="notice">Turn time: 8-10 business days.</aside>
+
 
 
 
